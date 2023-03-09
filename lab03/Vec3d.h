@@ -16,15 +16,15 @@ public:
     this->z_ = z;
   };
 
-  Vec3d add(Vec3d v);
-  Vec3d subtract(Vec3d v);
+  Vec3d add(const Vec3d &v);
+  Vec3d subtract(const Vec3d &v);
   Vec3d increment();
-  Vec3d multiply(Vec3d v);
-  bool equals(Vec3d v);
+  Vec3d multiply(const Vec3d &v);
+  bool equals(const Vec3d &v);
   std::string toString();
 };
 
-Vec3d Vec3d::add(Vec3d v)
+Vec3d Vec3d::add(const Vec3d &v)
 {
   int x = this->x_ + v.x_;
   int y = this->y_ + v.y_;
@@ -33,7 +33,7 @@ Vec3d Vec3d::add(Vec3d v)
   return Vec3d(x, y, z);
 }
 
-Vec3d Vec3d::subtract(Vec3d v)
+Vec3d Vec3d::subtract(const Vec3d &v)
 {
   int x = this->x_ - v.x_;
   int y = this->y_ - v.y_;
@@ -51,7 +51,7 @@ Vec3d Vec3d::increment()
   return Vec3d(x, y, z);
 }
 
-Vec3d Vec3d::multiply(Vec3d v)
+Vec3d Vec3d::multiply(const Vec3d &v)
 {
   int x = this->y_ * v.z_ - this->z_ * v.y_;
   int y = this->z_ * v.x_ - this->x_ * v.z_;
@@ -60,7 +60,7 @@ Vec3d Vec3d::multiply(Vec3d v)
   return Vec3d(x, y, z);
 }
 
-bool Vec3d::equals(Vec3d v)
+bool Vec3d::equals(const Vec3d &v)
 {
   return this->x_ == v.x_ && this->y_ == v.y_ && this->z_ == v.z_;
 }
